@@ -35,10 +35,10 @@ Hint: while these calculations can be done in one line, it might be helpful to c
 
 Hint #2: you'll need to use the `math` object for parts of this calculation!
 
-When your math is correct, monthlyRate will equal 1073.64
+When your math is correct, monthlyRate will equal 1073.64`
 */
 
-const n1 = (1 + monthlyInterestRate) ^ periods;
+const n1 = (1 + monthlyInterestRate) ** periods;
 const numerator = principal * n1 * monthlyInterestRate;
 const denominator = n1 - 1;
 const monthlyRate = numerator/denominator;
@@ -54,7 +54,7 @@ function mortgageCalculator(principal, interest, years, credit) {
     let name = "joanne";
     const monthlyInterestRate = interest / 12;
     const periods = years * 12;
-    const n1 = (1 + monthlyInterestRate) ^ periods;
+    const n1 = (1 + monthlyInterestRate) ** periods;
     const numerator = principal * n1 * monthlyInterestRate;
     const denominator = n1 - 1;
     const monthlyRate = numerator/denominator;
