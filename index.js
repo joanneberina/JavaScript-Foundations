@@ -7,7 +7,7 @@
 let principal = 200000;
 let interest = 0.05;
 let years = 30;
-let name = "joanne";
+let name = "Joanne";
 
 
 // 🏡 Task 1.5: Simple Math
@@ -51,7 +51,6 @@ If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly 
 */
 
 function mortgageCalculator(principal, interest, years, credit) {
-    let name = "joanne";
     const monthlyInterestRate = interest / 12;
     const periods = years * 12;
     const n1 = (1 + monthlyInterestRate) ** periods;
@@ -60,11 +59,11 @@ function mortgageCalculator(principal, interest, years, credit) {
     const monthlyRate = numerator/denominator;
     let newRate = monthlyRate;
 
-    if (credit>740) {
+    if (credit > 740) {
         newRate = monthlyRate * 0.95;
     }
 
-    if (credit>660) {
+    if (credit < 660) {
         newRate = monthlyRate * 1.05;
     }
 
@@ -79,7 +78,7 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
-mortgageCalculator(200000, 0.05, 30, 700);
+mortgageCalculator(200000, 0.05, 30, 770);
 
 
 // 🏡 Task 5: Conditionals
