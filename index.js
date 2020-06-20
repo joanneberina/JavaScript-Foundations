@@ -4,8 +4,10 @@
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
 
-
-
+let principal = 200000;
+let interest = 0.05;
+let years = 30;
+let name = "Joanne";
 
 
 // 🏡 Task 1.5: Simple Math
@@ -15,7 +17,8 @@
 (2) Create another variable called `periods` and give it the value of years*12.
 */
 
-
+const monthlyInterestRate = interest / 12;
+const periods = years * 12;
 
 
 // 🏡 Task 2: Harder Math
@@ -32,10 +35,13 @@ Hint: while these calculations can be done in one line, it might be helpful to c
 
 Hint #2: you'll need to use the `math` object for parts of this calculation!
 
-When your math is correct, monthlyRate will equal 1073.64
+When your math is correct, monthlyRate will equal 1073.64`
 */
 
-
+const n1 = (1 + monthlyInterestRate) ** periods;
+const numerator = principal * n1 * monthlyInterestRate;
+const denominator = n1 - 1;
+const monthlyRate = numerator/denominator;
 
 
 // 🏡 Task 3: Function
@@ -44,8 +50,25 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
+function mortgageCalculator(principal, interest, years, credit) {
+    const monthlyInterestRate = interest / 12;
+    const periods = years * 12;
+    const n1 = (1 + monthlyInterestRate) ** periods;
+    const numerator = principal * n1 * monthlyInterestRate;
+    const denominator = n1 - 1;
+    const monthlyRate = numerator/denominator;
+    let newRate = monthlyRate;
 
+    if (credit > 740) {
+        newRate = monthlyRate * 0.95;
+    }
 
+    if (credit < 660) {
+        newRate = monthlyRate * 1.05;
+    }
+
+    console.log(name + ", your monthly rate is " + newRate);
+}
 
 
 // 🏡 Task 4: Arguments and Parameters
@@ -55,8 +78,7 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
-
-
+mortgageCalculator(200000, 0.05, 30, 770);
 
 
 // 🏡 Task 5: Conditionals
@@ -86,7 +108,16 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+function variableInterestRate(principal, interest, years) {
+    let newInterest = interest - 0.02;
 
+    for (i=0; i<10; i++) {
+        mortgageCalculator(principal, newInterest, years)
+        newInterest = newInterest + 0.005;
+    }
+}
+
+variableInterestRate(200000, 0.05, 30);
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
